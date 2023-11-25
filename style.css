@@ -12,6 +12,8 @@ body{
     width: 100%;
     height: 100%;
     background-color: rgb(201, 201, 237);
+    /* background-image: url(background.png);
+    background-size: 100% 100%; */
     overflow: hidden;
 }
 
@@ -19,9 +21,12 @@ body{
     height: 800px;
     width: 50px;
     background-color: rgb(10, 198, 10);
+    /* background-image: url(skyscraper3.png); */
+    /* background-position: center; */
+    /* object-fit: scale-down; */
     position: relative;
     left: 800px;
-    animation: block 3s linear infinite;
+    animation: block 2s linear infinite;
 }
 
 @keyframes block {
@@ -37,18 +42,20 @@ body{
     height: 200px;
     width: 50px;
     background-color: rgb(201, 201, 237);
+    /* background-image: url(hole.png); */
     position: absolute;
     left: 800px;
     top: 300px;
-    animation: block 3s linear infinite;
+    animation: block 2s linear infinite;
 }
 
 #character{
     width: 75px;
     height: 75px;
-    background-image: url(download.png);
-    background-position: center;
+    background-image: url(alien1.png);
     background-size: 100%;
+    background-position: center;
+    background-repeat: no-repeat;
     position: absolute;
     top: 120px;
     left: 30px;
@@ -75,4 +82,10 @@ body{
     100%{
         transform: rotate(-50px);
     }
+}
+
+#counter{
+    font-size: 5em;
+    color: black;
+    position: absolute;
 }

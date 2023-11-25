@@ -6,10 +6,12 @@ class UI {
         this.characterTop = parseInt(window.getComputedStyle(this.character).getPropertyValue('top'));
         this.blockLeft = parseInt(window.getComputedStyle(this.block).getPropertyValue('left'));
         this.holeTop = parseInt(window.getComputedStyle(this.hole).getPropertyValue('top'));
+        this.counter = document.getElementById('counter')
     }
 
     updateUI(model) {
         this.character.style.top = model.characterTop + 'px';
+        this.counter.textContent = model.counter;
     }
 
     getBlockLeft() {
@@ -49,16 +51,24 @@ class Model {
 let myUi = new UI;
 let myModel = new Model(myUi)
 
+let start = true
+
 myUi.hole.addEventListener('animationiteration', () => {
 
     let random = Math.random();
     let top = (random * 507);
     myUi.hole.style.top = (top) + 'px';
     myModel.counter++;
+    myUi.updateUI(myModel);
 
 });
 
 setInterval(function () {
+    // start = true
+
+    // if(start === true) {
+    //     myUi.character.style.transform = 'rotate(20deg)'
+    // }
 
     if (myModel.jumping === 0) {
         myModel.characterTop += 3
@@ -83,7 +93,13 @@ setInterval(function () {
 }, 10);
 
 function jump() {
+    // start = false
     myModel.jumping = 1;
+
+    // if(start === false) {
+    //     myUi.character.style.transform = 'rotate(-10deg)'
+    // }
+
     let jumpInterval = setInterval(function () {
 
         if (myModel.characterTop > 6) {
